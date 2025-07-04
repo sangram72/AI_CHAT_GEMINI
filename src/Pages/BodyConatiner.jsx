@@ -4,7 +4,7 @@ import Message from "./Message";
 import Reusable_Input from "../COMPONENTS/UI/Input";
 import { IoSend } from "react-icons/io5";
 
-import API_SERVICE_PROVIDER from "../API_SERVICE_PROVIDER.js";
+import API_SERVICE_PROVIDER from "../API_SERVICE_PROVIDER.JS";
 
 
 
@@ -98,7 +98,7 @@ const bottomRef = useRef()
 <div className="Lower">
   
     <Reusable_Input  values={Input_Value} On_changevalue={Changethevalue} onkeydown={handleKeyDown}/>
- <IoSend className="button-icon"/>
+ <IoSend className="button-icon" onClick={()=>{getResponseForGivenPrompt(),setInput_Value("")}}/>
  </div>
 
 
