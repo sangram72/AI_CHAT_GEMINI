@@ -4,7 +4,7 @@ import Message from "./Message";
 import Reusable_Input from "../COMPONENTS/UI/Input";
 import { IoSend } from "react-icons/io5";
 
-import API_SERVICE_PROVIDER from "../API_SERVICE_PROVIDER.JS";
+import API_SERVICE_PROVIDER from "../API_SERVICE_PROVIDER.js";
 
 
 
