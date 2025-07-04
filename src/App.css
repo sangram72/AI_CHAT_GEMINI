@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body, html {
+  height: 100%;
+  font-family: sans-serif;
+}
 
 .Final-Parent {
   display: flex;
@@ -16,19 +20,18 @@
   width: 100%;
 }
 
-
 .Header-Parent {
   text-align: center;
   color: burlywood;
+  padding: 1rem;
 }
-
 
 .Body-Parent {
   background-color: white;
   align-self: center;
   border-radius: 10px;
   box-shadow: 8px 8px 24px 0px greenyellow;
-  min-width: 100%;
+  width: 100%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -37,54 +40,25 @@
   overflow-y: auto;
 }
 
-
-
-
-
 .Message-Parent {
   display: flex;
   flex-direction: column;
   gap: 10px;
-margin-bottom: 10%;
-  
+  margin-bottom: 10%;
+  padding: 10px;
 }
-
-.Inputss{
-  border-radius:25px;
- /* border: 1px solid red; */
-  padding: 3rem 0.8rem;
-  /* box-shadow: 2px 0px 8px 2px red; */
-   width: 50%;
-   font-size: large;
-   outline: none;
-   border: none;
-   border: 1px solid rgb(190, 182, 182);
-  
-  
-
-
-}
-/* .Inputss::placeholder{
-  font-size: 24px;
-} */
-
-
 
 .Received-Parent {
   align-self: flex-start;
-
   color: black;
   width: fit-content;
   max-width: 60%;
   padding: 10px;
   border-radius: 10px;
-  height: fit-content;
   font-weight: bold;
+  background-color: #f1f1f1;
   display: flex;
-  justify-content: center;
-  align-items: center;
   word-wrap: break-word;
-  word-break: break-word;
   white-space: normal;
 }
 
@@ -93,77 +67,103 @@ margin-bottom: 10%;
   background-color: grey;
   color: beige;
   width: fit-content;
-  height: fit-content;
   max-width: 60%;
   padding: 10px;
   border-radius: 10px;
   font-weight: bold;
   display: flex;
-  justify-content: center;
-  align-items: center;
   word-wrap: break-word;
-  word-break: break-word;
   white-space: normal;
 }
 
-
-.Lower{
-  /* display: flex; */
-    position: fixed;
-  left: 0;
-  margin-bottom: 20px;
+.Lower {
+  position: fixed;
   bottom: 0;
-  padding: 20px 10px;
-
+  left: 0;
   width: 100%;
-
-   display: flex;
-   justify-content: center;
-   /* top: 70%; */
-   
-   
-
-
+  padding: 15px 10px;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.button-icon{
+.Input_Parent {
+  position: relative;
+  width: 50%;
+  max-width: 700px;
+}
+.Copy_Button{
+  cursor: pointer;
+   margin-left: 10px;
+ 
+}
+.P-copy{
+    margin-left: 10px;
+}
+
+.Inputss {
+  width: 100%;
+  border-radius: 25px;
+  padding: 1.2rem 3.5rem 1.2rem 1.2rem; /* left and right padding for icon */
+  font-size: 1rem;
+  border: 1px solid rgb(190, 182, 182);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.button-icon {
   position: absolute;
-  top: 45%;
-    right: 30%;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #004242;
+  cursor: pointer;
 }
 
 
+/* ----------------- Media Queries ------------------ */
 
-@media (max-width: 1000px) {
-  .Lower{
-    /* display: flex; */
+@media (max-width: 1024px) {
+  .Input_Parent {
+    width: 70%;
+  }
+
+  .Lower {
     flex-direction: column;
-   gap: 5px;
-   margin-bottom: 8%;
+    margin-bottom: 5%;
+  }
 
+  .Message-Parent {
+    margin-bottom: 25%;
   }
-    .Message-Parent{
-    margin-bottom: 30%;
-  }
-}
-
-@media (max-width:600px){
-  .Message-Parent{
-    margin-bottom: 100%;
-  }
-  .Lower{
-   margin-bottom: 10%;
-  }
-  .Inputss{
-    width: 60%;
-
   
-  }
-  .Input_Parent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
+@media (max-width: 600px) {
+  .Input_Parent {
+    width: 85%;
+  }
 
+  .Lower {
+    margin-bottom: 20%;
+  }
+
+  .Message-Parent {
+    margin-bottom: 40%;
+  }
+
+  .Inputss {
+    padding: 1rem 3rem 1rem 1rem;
+  }
+
+  .button-icon {
+    font-size: 1.3rem;
+    right: 12px;
+  }
+}
