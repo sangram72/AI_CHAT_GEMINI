@@ -36,6 +36,7 @@ window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
 
 const getResponseForGivenPrompt = async () => {
+
     try {
 
 
@@ -52,7 +53,7 @@ const getResponseForGivenPrompt = async () => {
         "AI_RESPONSE":res?res:null
       }
       setmessagedata([...message_data,outputobj])
-   
+   setInput_Value("")
   
      
     }
@@ -86,8 +87,13 @@ const bottomRef = useRef()
 
      const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
-      getResponseForGivenPrompt()
+        if(Input_Value!=""){
+ getResponseForGivenPrompt()
       setInput_Value("")
+        }else{
+          alert("Fill the Message")
+        }
+     
    
        }
     }
@@ -98,7 +104,13 @@ const bottomRef = useRef()
 <div className="Lower">
   
     <Reusable_Input  values={Input_Value} On_changevalue={Changethevalue} onkeydown={handleKeyDown}/>
- <IoSend className="button-icon" onClick={()=>{getResponseForGivenPrompt(),setInput_Value("")}}/>
+  
+       <IoSend className="button-icon" onClick={()=>{
+  Input_Value==""   ?alert("Fill the message"):getResponseForGivenPrompt
+
+  }}/>
+    
+
  </div>
 
 
