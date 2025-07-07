@@ -4,74 +4,76 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eaeff1;
+  overflow: hidden;
 }
 
 .Final-Parent {
   display: flex;
-  background-color: #004242;
   flex-direction: column;
-  overflow: hidden;
-  height: 100%;
+  background-color: #004242;
+  height: 100dvh; /* Better support for mobile keyboard */
+  width: 100%;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
 }
 
 .Header-Parent {
   text-align: center;
   color: burlywood;
-  padding: 0.5rem;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #003333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .Body-Parent {
-  background-color: white;
+  background-color: #fff;
   align-self: center;
-  border-radius: 10px;
-  box-shadow: 8px 8px 24px 0px greenyellow;
-  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px rgba(173, 255, 47, 0.5); /* green shadow */
+  width: 95%;
   height: 90%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
+  padding: 1rem;
+  padding-bottom: 120px; /* Leave space for input bar */
   overflow-y: auto;
 }
 
 .Message-Parent {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10%;
-  padding: 10px;
+  gap: 0.75rem;
+  padding: 0.5rem;
 }
 
 .Received-Parent {
   align-self: flex-start;
-  color: black;
-  width: fit-content;
-  max-width: 60%;
-  padding: 10px;
+  color: #222;
+  background-color: #f2f2f2;
+  padding: 0.75rem 1rem;
   border-radius: 10px;
-  font-weight: bold;
-  background-color: #f1f1f1;
-  display: flex;
+  font-weight: 500;
+  max-width: 60%;
   word-wrap: break-word;
   white-space: normal;
 }
 
 .Sending-parent {
   align-self: flex-end;
-  background-color: grey;
-  color: beige;
-  width: fit-content;
-  max-width: 60%;
-  padding: 10px;
+  background-color: #6b6b6b;
+  color: #f8f8f8;
+  padding: 0.75rem 1rem;
   border-radius: 10px;
-  font-weight: bold;
-  display: flex;
+  font-weight: 500;
+  max-width: 60%;
   word-wrap: break-word;
   white-space: normal;
 }
@@ -81,12 +83,13 @@ body, html {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 15px 10px;
- 
+  padding: 1rem 0.5rem;
+  background-color: #f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 1000;
+  border-top: 1px solid #ccc;
 }
 
 .Input_Parent {
@@ -94,23 +97,19 @@ body, html {
   width: 50%;
   max-width: 700px;
 }
-.Copy_Button{
-  cursor: pointer;
-   margin-left: 10px;
- 
-}
-.P-copy{
-    margin-left: 10px;
-}
 
 .Inputss {
   width: 100%;
   border-radius: 25px;
-  padding: 1.2rem 3.5rem 1.2rem 1.2rem; /* left and right padding for icon */
+  padding: 1rem 3rem 1rem 1rem;
   font-size: 1rem;
-  border: 1px solid rgb(190, 182, 182);
+  border: 1px solid #ccc;
   outline: none;
-  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+.Inputss:focus {
+  border-color: #00bfa5;
 }
 
 .button-icon {
@@ -120,12 +119,27 @@ body, html {
   transform: translateY(-50%);
   background: none;
   border: none;
-  cursor: pointer;
   font-size: 1.5rem;
-  color: red;
+  color: #ff5252;
   cursor: pointer;
 }
 
+.Copy_Button {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+.Copy_Button:hover {
+  color: #00bfa5;
+}
+
+.P-copy {
+  margin-left: 10px;
+  font-size: 0.85rem;
+  color: #777;
+}
 
 /* ----------------- Media Queries ------------------ */
 
@@ -136,34 +150,35 @@ body, html {
 
   .Lower {
     flex-direction: column;
-    margin-bottom: 5%;
   }
 
   .Message-Parent {
-    margin-bottom: 25%;
+    margin-bottom: 0; /* Avoid pushing content up */
   }
-  
 }
 
 @media (max-width: 600px) {
   .Input_Parent {
-    width: 85%;
+    width: 90%;
   }
 
   .Lower {
-    margin-bottom: 20%;
-  }
-
-  .Message-Parent {
-    margin-bottom: 40%;
+    margin-bottom: 0; /* Remove mobile-specific margin bug */
   }
 
   .Inputss {
-    padding: 1rem 3rem 1rem 1rem;
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+    font-size: 0.95rem;
   }
 
   .button-icon {
     font-size: 1.3rem;
     right: 12px;
+  }
+
+  .Received-Parent,
+  .Sending-parent {
+    max-width: 80%;
+    font-size: 0.95rem;
   }
 }
